@@ -1,0 +1,16 @@
+p
+0.0
+temperatura_inicial
+5.03
+temperatura_final
+0.00
+incremento_temperatura
+-0.001
+campo_inicial
+0.1
+incenteza
+0.00001
+derivada
+0.001
+alpha
+0
