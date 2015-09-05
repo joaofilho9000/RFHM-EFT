@@ -7,7 +7,7 @@
 
 #include "Newton.h"
 //--------------------------------------construtores
-Newton::Newton():e(0.0001), dx(0.01){}
+Newton::Newton():e(0.001), dx(0.01){}
 Newton::Newton(double e_,double dx_):e(e_),dx(dx_){}
 Newton::~Newton(){}
 
@@ -41,7 +41,7 @@ double Newton::solucao(double x)
 	  int n;       //contador
 	  ff=1;        //auxiliares
 	  n=0;
-	  while((std::abs(ff) > e) && (n <100.000))
+	  while((std::abs(ff) > e) && (n <1000))
 	  {
 	    ff=FH(x);
 	    dff=dF(x);

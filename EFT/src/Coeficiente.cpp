@@ -8,7 +8,7 @@
 #include "Coeficiente.h"
 //--------------------------------------construtores
 	Coeficiente::Coeficiente(double a_,double H_, double p_, double t_): a(a_),H(H_), p(p_),t(t_){};
-	Coeficiente::Coeficiente(): a(0),H(0), p(0),t(5.0){};
+	Coeficiente::Coeficiente(): a(0),H(0),p(0),t(5.0){};
 	Coeficiente::~Coeficiente() {};
 //--------------------------------------gets sets
 	double Coeficiente::getA() const {
@@ -73,6 +73,42 @@
 	  #include "c3.h"
 	  return t0;
 	};
+
+	double Coeficiente::c5(double t_, double H_,double p_,double a_ ){
+	  double t0;
+	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
+	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
+        a=a_;
+    	H=H_;
+		p=p_;
+		t=t_;
+	  #include "c5.h"
+	  return t0;
+	};
+
+	double Coeficiente::c7(double t_, double H_,double p_,double a_ ){
+	  double t0;
+	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
+	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
+        a=a_;
+    	H=H_;
+		p=p_;
+		t=t_;
+	  #include "c7.h"
+	  return t0;
+	};
+
+	double Coeficiente::c9(double t_, double H_,double p_,double a_ ){
+	  double t0;
+	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
+	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
+        a=a_;
+    	H=H_;
+		p=p_;
+		t=t_;
+	  #include "c9.h"
+	  return t0;
+	};
 //-------------------------------------------------------------------função G
 	double Coeficiente::g(double u, double v){
 	  double t0;
@@ -82,17 +118,17 @@
 	  return t0;
 	};
 //-------------------------------------------------------------------modelos
-	inline double Coeficiente::phi(double w){
-		return(exp(-2.0*w));	//ising
-	};
-//double Coeficiente::phi(double w){
-//	return((3.0*w*(-1.0+tanh(3.0*w))+tanh(3.0*w))/(3.0*w*(1.0+tanh(3.0*w))-tanh(3.0*w))); //Heisenberg
-//};
+//	inline double Coeficiente::phi(double w){
+//		return(exp(-2.0*w));	//ising
+//	};
+inline double Coeficiente::phi(double w){
+	return((3.0*w*(-1.0+tanh(3.0*w))+tanh(3.0*w))/(3.0*w*(1.0+tanh(3.0*w))-tanh(3.0*w))); //Heisenberg
+};
 //
-//double Coeficiente::phi(double w){
+//inline double Coeficiente::phi(double w){
 //		  return((1.0+sqrt(4.0*w*w+1.0)-2.0*w)/(1.0+sqrt(4.0*w*w+1.0)+2.0*w));// esférico
 //};
-//double Coeficiente::phi(double w){
+//inline double Coeficiente::phi(double w){
 //		  return((-j1(2.0*w)+j0(2.0*w))/(j1(2.0*w)+j0(2.0*w)));  //XY model
 //};
 

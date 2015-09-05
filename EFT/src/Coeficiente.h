@@ -37,6 +37,10 @@ public:
 //--------------------------------------coeficientes
 	double c1(double t_, double H_,double p_,double a_  );
 	double c3(double t_, double H_,double p_,double a_  );
+	double c5(double t_, double H_,double p_,double a_  );
+	double c7(double t_, double H_,double p_,double a_  );
+	double c9(double t_, double H_,double p_,double a_  );
+
 private:
 	double g(double u, double v);
 	inline double phi(double w);

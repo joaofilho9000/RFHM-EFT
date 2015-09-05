@@ -10,7 +10,9 @@ CPP_SRCS += \
 ../src/Funcao.cpp \
 ../src/Funcao_test.cpp \
 ../src/Newton.cpp \
-../src/Newton_test.cpp 
+../src/Newton_test.cpp \
+../src/PlotarGrafico.cpp \
+../src/PlotarGrafico_test.cpp 
 
 OBJS += \
 ./src/Coeficiente.o \
@@ -19,7 +21,9 @@ OBJS += \
 ./src/Funcao.o \
 ./src/Funcao_test.o \
 ./src/Newton.o \
-./src/Newton_test.o 
+./src/Newton_test.o \
+./src/PlotarGrafico.o \
+./src/PlotarGrafico_test.o 
 
 CPP_DEPS += \
 ./src/Coeficiente.d \
@@ -28,7 +32,9 @@ CPP_DEPS += \
 ./src/Funcao.d \
 ./src/Funcao_test.d \
 ./src/Newton.d \
-./src/Newton_test.d 
+./src/Newton_test.d \
+./src/PlotarGrafico.d \
+./src/PlotarGrafico_test.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
