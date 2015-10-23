@@ -6,6 +6,7 @@
  */
 
 #include "Newton.h"
+#include <quadmath.h>
 //--------------------------------------construtores
 Newton::Newton():e(0.001), dx(0.01){}
 Newton::Newton(double e_,double dx_):e(e_),dx(dx_){}

@@ -3,7 +3,12 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../src/EFT.o 
+
 CPP_SRCS += \
+../src/Bisseccao.cpp \
+../src/Bisseccao_test.cpp \
 ../src/Coeficiente.cpp \
 ../src/Coeficiente_test.cpp \
 ../src/EFT.cpp \
@@ -15,6 +20,8 @@ CPP_SRCS += \
 ../src/PlotarGrafico_test.cpp 
 
 OBJS += \
+./src/Bisseccao.o \
+./src/Bisseccao_test.o \
 ./src/Coeficiente.o \
 ./src/Coeficiente_test.o \
 ./src/EFT.o \
@@ -26,6 +33,8 @@ OBJS += \
 ./src/PlotarGrafico_test.o 
 
 CPP_DEPS += \
+./src/Bisseccao.d \
+./src/Bisseccao_test.d \
 ./src/Coeficiente.d \
 ./src/Coeficiente_test.d \
 ./src/EFT.d \

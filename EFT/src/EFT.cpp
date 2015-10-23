@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+//#include <thread>
 #include "PlotarGrafico.h"
 using namespace std;
 int main() {
@@ -16,8 +17,8 @@ int main() {
 	PlotarGrafico EFT;
 	const char* arquivo="diagrama.agr";
 	const char* arquivo2="diagramaPTC.agr";
-	EFT.plotar(0, 0.2,5,0.1, 0.1, 0, 0.4, 0.1, arquivo, arquivo2 );
+  //parâmetros alpha, campo, temperaturaInicial, temperaturaFinal, deltaT, pInicial, pFinal, deltaP, diagrama, ptc
+	EFT.plotar(0.9, 1, 3.3 , 0.0, 0.001, 0.0, 0.9, 0.01, arquivo, arquivo2 );
 	cout << "!!!fim !!!" << endl;
 	return 0;
-
 }

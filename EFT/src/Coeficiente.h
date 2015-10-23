@@ -13,18 +13,18 @@ class Coeficiente {
 //private:
 //public:
 protected:
-	double a;
-	double H;
-	double p;
-	double t;
+	long double a;
+	long double H;
+	long double p;
+	long double t;
 //--------------------------------------métodos
 public:
 //--------------------------------------construtores
-	Coeficiente(double a_,double H_, double p_ , double t_);
+	Coeficiente(long double a_,long double H_,long double p_ ,long double t_);
 	Coeficiente();
 	virtual ~Coeficiente();
 //--------------------------------------gets e sets
-	void set(double a_,double H_, double p_ , double t_);
+	void set(long double a_,long double H_,long double p_ ,long double t_);
 	double getA() const;
 	void setA(double a);
 	double getH() const;
@@ -35,14 +35,14 @@ public:
 	void setT(double t) ;
 
 //--------------------------------------coeficientes
-	double c1(double t_, double H_,double p_,double a_  );
-	double c3(double t_, double H_,double p_,double a_  );
-	double c5(double t_, double H_,double p_,double a_  );
-	double c7(double t_, double H_,double p_,double a_  );
-	double c9(double t_, double H_,double p_,double a_  );
+	long double c1(long double t_,long double H_,long double p_,long double a_  );
+	long double c3(long double t_,long double H_,long double p_,long double a_  );
+	long double c5(long double t_,long double H_,long double p_,long double a_  );
+	long double c7(long double t_,long double H_,long double p_,long double a_  );
+	long double c9(long double t_,long double H_,long double p_,long double a_  );
 
 private:
-	double g(double u, double v);
-	inline double phi(double w);
+	long double g(long double u, long double v);
+	inline long double phi(long double w);
 };
 #endif /* COEFICIENTE_H_ */
