@@ -7,7 +7,7 @@
 
 #include "Coeficiente.h"
 //--------------------------------------construtores
-	Coeficiente::Coeficiente(long double a_,long double H_,long double p_,long double t_): a(a_),H(H_), p(p_),t(t_){};
+	Coeficiente::Coeficiente(double a_,double H_, double p_, double t_): a(a_),H(H_), p(p_),t(t_){};
 	Coeficiente::Coeficiente(): a(0),H(0),p(0),t(5.0){};
 	Coeficiente::~Coeficiente() {};
 //--------------------------------------gets sets
@@ -43,14 +43,14 @@
 		this->t = t;
 	};
 
-	void Coeficiente::set(long double a_,long double H_,long double p_ ,long double t_) {
+	void Coeficiente::set(double a_,double H_, double p_ , double t_) {
 	    a=a_;
 		H=H_;
 		p=p_;
 		t=t_;
      };
 //---------------------------------------------------------------coeficientes
-	long double Coeficiente::c1(long double t_, long double H_,long double p_,long double a_ ){
+	double Coeficiente::c1(double t_, double H_,double p_,double a_ ){
 	  double t0;
 	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
@@ -62,7 +62,7 @@
 	  return t0;
 	};
 
-	long double Coeficiente::c3(long double t_, long double H_, long double p_,long double a_ ){
+	double Coeficiente::c3(double t_, double H_,double p_,double a_ ){
 	  double t0;
 	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
@@ -74,7 +74,7 @@
 	  return t0;
 	};
 
-	long double Coeficiente::c5(long double t_, long double H_, long double p_, long double a_ ){
+	double Coeficiente::c5(double t_, double H_,double p_,double a_ ){
 	  double t0;
 	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
@@ -86,9 +86,9 @@
 	  return t0;
 	};
 
-	long double Coeficiente::c7(long double t_, long double H_, long double p_, long double a_ ){
-	 long double t0;
-	  long double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
+	double Coeficiente::c7(double t_, double H_,double p_,double a_ ){
+	  double t0;
+	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
         a=a_;
     	H=H_;
@@ -98,9 +98,9 @@
 	  return t0;
 	};
 
-	long double Coeficiente::c9(long double t_,long double H_,long double p_,long double a_ ){
-	  long double t0;
-	  long double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
+	double Coeficiente::c9(double t_, double H_,double p_,double a_ ){
+	  double t0;
+	  double   MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7, MapleGenVar8;
         a=a_;
     	H=H_;
@@ -110,7 +110,7 @@
 	  return t0;
 	};
 //-------------------------------------------------------------------função G
-	long double Coeficiente::g(long double u, long double v){
+	double Coeficiente::g(double u, double v){
 	  double t0;
 	  double  MapleGenVar1, MapleGenVar2, MapleGenVar3, MapleGenVar4, MapleGenVar5,
 	  MapleGenVar6, MapleGenVar7;
@@ -121,12 +121,9 @@
 //	inline double Coeficiente::phi(double w){
 //		return(exp(-2.0*w));	//ising
 //	};
-inline long double Coeficiente::phi(long double w){
+inline double Coeficiente::phi(double w){
 	return((3.0*w*(-1.0+tanh(3.0*w))+tanh(3.0*w))/(3.0*w*(1.0+tanh(3.0*w))-tanh(3.0*w))); //Heisenberg
 };
-//inline long double Coeficiente::phi(long double w){
-//	return(1); //Heisenberg
-//};
 //
 //inline double Coeficiente::phi(double w){
 //		  return((1.0+sqrt(4.0*w*w+1.0)-2.0*w)/(1.0+sqrt(4.0*w*w+1.0)+2.0*w));// esférico

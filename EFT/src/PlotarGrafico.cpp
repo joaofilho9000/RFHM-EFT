@@ -11,9 +11,9 @@ namespace std {
 
 PlotarGrafico::PlotarGrafico(){};
 PlotarGrafico::PlotarGrafico(double alpha_, double campo_, double temperaturaInicial_,
-		double temperaturaFinal_,double deltaT_, double pInicial_, double pFinal_, double deltaP_,char* nomeArquivo_,char* nomeArquivo2_):
-																			alpha(alpha_), campo(campo_), temperaturaInicial(temperaturaInicial_),
-																			temperaturaFinal(temperaturaFinal_),deltaT(deltaT_),pInicial(pInicial_),pFinal(pFinal_),deltaP(deltaP_), nomeArquivo2(nomeArquivo2_){
+		double temperaturaFinal_,double deltaT_, double pInicial_, double pFinal_, double deltaP_,char* nomeArquivo_):
+									alpha(alpha_), campo(campo_), temperaturaInicial(temperaturaInicial_),
+									temperaturaFinal(temperaturaFinal_),deltaT(deltaT_),pInicial(pInicial_),pFinal(pFinal_),deltaP(deltaP_){
 	this->nomeArquivo=nomeArquivo_;
 	ofstream arquivoDiagrama;
 	ofstream arquivoPTC;
@@ -39,8 +39,8 @@ PlotarGrafico::PlotarGrafico(double alpha_, double campo_, double temperaturaIni
 			Coeficiente3=problema.F3H(campo);
 			if((Coeficiente3<=0) and (isfinite(Coeficiente3)))
 			{
-				arquivoDiagrama	<<"#concentracao campo temperatura" << endl;
-				arquivoDiagrama <<concentracao << campo << temperatura << endl;
+				arquivoDiagrama	<<"#campo temperatura" << endl;
+				arquivoDiagrama << campo << temperatura << endl;
 				//		printf("%f %f\n", campo, temperatura );
 				//		fprintf(result,"%f %f\n ", campo, temperatura );
 				//		fprintf(result2,"%f	%f	%f\n ", campo, concentracao, temperatura );
@@ -99,37 +99,32 @@ void PlotarGrafico::plotar(double alpha_, double campo_, double temperaturaInici
 	Newton problema;
 	double Coeficiente3;
 	arquivoDiagrama	<<"#campo temperatura" << endl;
-	for(concentracao=pInicial; concentracao<=pFinal;concentracao+=deltaP){
-		arquivoDiagrama	<<"#" <<concentracao << endl;
-		for(temperatura=temperaturaInicial;temperatura>  temperaturaFinal; temperatura-=deltaT){
-			problema.set(alpha,campo,concentracao,temperatura);
-			campo=problema.solucao(campo);
-			if (isfinite(campo)){
-				Coeficiente3=problema.F3H(campo);
-				if((Coeficiente3<=0) and (isfinite(Coeficiente3))){
-					arquivoDiagrama  << campo << " "<< temperatura <<" " << concentracao << endl;
-					cout << concentracao << " " << campo << " "<< temperatura << endl;
-					campoTricritico= campo;
-					temperaturaTricritica=temperatura;
-				}
-				else{
-					if(isfinite(Coeficiente3)){
-						arquivoPTC  << campoTricritico <<" "<<  temperaturaTricritica << " " << concentracao <<  endl;
-						arquivoDiagrama << "&" << endl;
-						arquivoDiagrama << campoTricritico <<" "<<  temperaturaTricritica << endl;
-						campo=campo_;
-						break ;
-					}
-					else
-					{
-						arquivoDiagrama <<"#" << campoTricritico <<"  "<<  temperaturaTricritica << " erro "<< Coeficiente3 << endl;
-					}
-				}
+	for(concentracao=pInicial; concentracao<=pFinal;concentracao+=deltaP)
+	{campo=campo_;
+		for(temperatura=temperaturaInicial;temperatura > temperaturaFinal; temperatura-=deltaT)    //variando a temperatura
+		{   problema.set(alpha,campo,concentracao,temperatura);
+		campo=problema.solucao(campo);
+		if (isfinite(campo))
+		{
+			Coeficiente3=problema.F3H(campo);
+			if((Coeficiente3<=0) and (isfinite(Coeficiente3)))
+			{
+
+				arquivoDiagrama << campo <<" "<< temperatura << endl;
+				campoTricritico= campo;
+				temperaturaTricritica=temperatura;
 			}
+			else
+			{
+				arquivoPTC << campoTricritico <<" " << temperaturaTricritica <<  endl;
+				arquivoDiagrama << "&" << endl;
+				arquivoDiagrama << campoTricritico << " "<< temperaturaTricritica << endl;
+				break ;
+			}
+		}
 		}
 		//	fprintf(result,"& \n " );
 		arquivoDiagrama << "&" << endl;
-		cout << "*" << endl;
 	}
 	arquivoDiagrama.close();
 	arquivoPTC.close();

@@ -29,7 +29,6 @@ public:
 
 	double dF(double x);
 	double solucao(double x);
-	double solucaoH(double x);
 };
 
 #endif /* NEWTON_H_ */
