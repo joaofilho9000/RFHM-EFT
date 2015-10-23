@@ -10,7 +10,7 @@
 #include <cmath>
 #include "Funcao.h"
 
-class Newton:public Funcao{
+class Newton: public Funcao {
 //--------------------atributos
 private:
 	double e;
@@ -19,11 +19,11 @@ private:
 public:
 //--------------------construtores
 	Newton();
-	Newton(double e_,double dx);
+	Newton(double e_, double dx);
 	virtual ~Newton();
 //--------------------gets sets
 	double getE() const;
-    void setE(double e);
+	void setE(double e);
 	double getDx() const;
 	void setDx(double dx);
 

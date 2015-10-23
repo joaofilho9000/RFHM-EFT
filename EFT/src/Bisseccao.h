@@ -11,7 +11,7 @@
 #include "Funcao.h"
 
 namespace std {
-class Bisseccao:public Funcao {
+class Bisseccao: public Funcao {
 private:
 	double e;
 	double a;
@@ -19,7 +19,7 @@ private:
 	double n;
 public:
 	Bisseccao();
-	Bisseccao(double e_,double a_,double b_,double n_);
+	Bisseccao(double e_, double a_, double b_, double n_);
 	virtual ~Bisseccao();
 	double solucaoH(double a_, double b_);
 };

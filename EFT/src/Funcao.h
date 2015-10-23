@@ -8,7 +8,7 @@
 #ifndef FUNCAO_H_
 #define FUNCAO_H_
 
-class Funcao:public Coeficiente{
+class Funcao: public Coeficiente {
 public:
 	Funcao();
 	virtual ~Funcao();
